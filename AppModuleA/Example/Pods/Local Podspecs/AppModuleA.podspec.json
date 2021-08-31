@@ -1,0 +1,22 @@
+{
+  "name": "AppModuleA",
+  "version": "0.1.0",
+  "summary": "A short description of AppModuleA.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/caohaitao/AppModuleA",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "caohaitao": "caohaitao@hupu.com"
+  },
+  "source": {
+    "git": "https://github.com/caohaitao/AppModuleA.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "AppModuleA/Classes/**/*"
+}
