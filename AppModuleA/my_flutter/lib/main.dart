@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_flutter/HomeScreen.dart';
+
 
 main(List<String> args) {
   runApp(MaterialApp(
@@ -73,17 +75,12 @@ class _HHHomePageState extends State<HHHomePage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: 150,
-        height: 200,
-        color: Colors.cyan,
-        child: Center(
-          child: Text(
-            _message,
-            style: TextStyle(color: Colors.blue, fontSize: 28),
-          ),
-        ),
+      backgroundColor: Colors.brown,
+      appBar: AppBar(
+        title: Text("Ta们在卖"),
+        backgroundColor: Colors.purpleAccent,
       ),
+      body: THomeScreen(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           getDeviceEventMessage();
