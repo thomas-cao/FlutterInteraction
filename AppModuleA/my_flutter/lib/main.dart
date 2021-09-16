@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_flutter/HomeScreen.dart';
+import 'package:my_flutter/TabbarController.dart';
 
 
 main(List<String> args) {
+    WidgetsFlutterBinding.ensureInitialized();
+    //  SystemUiOverlay.top,设置状态栏显示   安卓的底部操作栏 SystemUiOverlay.bottom 
+    //设置之前需要先  WidgetsFlutterBinding.ensureInitialized();
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom, SystemUiOverlay.top]);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(primarySwatch: Colors.pink),
-    home: HHHomePage(),
+    home: TabbarController(),
   ));
+
+ 
 }
 
 class HHHomePage extends StatefulWidget {
@@ -19,7 +26,7 @@ class HHHomePage extends StatefulWidget {
 class _HHHomePageState extends State<HHHomePage> with WidgetsBindingObserver {
   // 从原生页面获取数据
   static const plaform = const MethodChannel("flutter/transferMessage");
-  var _message = "页面内容";
+  String _message = "页面内容";
   // 获取原生消息
   static const basicChannel =
       const BasicMessageChannel("flutter/sendMessage", StandardMessageCodec());
@@ -35,7 +42,7 @@ class _HHHomePageState extends State<HHHomePage> with WidgetsBindingObserver {
 
   // 监听原生发来的消息
   Future _recevierMessage(message) async {
-    print('收到native的消息${message}');
+    print('收到native的消息$message');
   }
 
   // 获取页面切换的状态
