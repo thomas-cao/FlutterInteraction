@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter/collectionItem.dart';
 import 'package:my_flutter/loadingView.dart';
+import 'package:my_flutter/subNavCollection.dart';
 import 'rowItem.dart';
 
 class TabbarController extends StatefulWidget {
@@ -105,23 +106,14 @@ class _TodayPageState extends State<TodayPage> with AutomaticKeepAliveClientMixi
                     )
                     ),
                 ),
-                 Container(
-                  color: Colors.purple,
-                  width: 100,
-                  height: 450,
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: CollectionItem(),
-                      ),
+                 Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: CollectionItem(),
+                ),
+                 Padding(
+                    padding:  const EdgeInsets.fromLTRB(8, 0, 8, 8),
+                    child: SubNavCollection(),
                   ),
-
-                ),
-                 Container(
-                  color: Colors.yellow,
-                  width: 100,
-                  height: 450,
-                ),
                  Container(
                   color: Colors.orange,
                   width: 100,

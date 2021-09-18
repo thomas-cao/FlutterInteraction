@@ -6,7 +6,7 @@ class CollectionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PhysicalModel(
-      color: Colors.transparent,
+      color: Colors.blue,
       borderRadius: BorderRadius.circular(10),
       clipBehavior: Clip.antiAlias,
       child: Column(
