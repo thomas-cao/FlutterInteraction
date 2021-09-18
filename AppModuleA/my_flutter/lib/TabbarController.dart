@@ -1,8 +1,11 @@
 
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:my_flutter/collectionItem.dart';
 import 'package:my_flutter/loadingView.dart';
+import 'rowItem.dart';
 
 class TabbarController extends StatefulWidget {
    @override
@@ -79,7 +82,13 @@ class _TodayPageState extends State<TodayPage> with AutomaticKeepAliveClientMixi
     print("加载today页面");
     return Scaffold(
       backgroundColor: Colors.blue,
-      body: LoadingView(
+      body: _getRootContent()
+    );
+
+  }
+
+ Widget _getRootContent() {
+    return LoadingView(
         isLoading: false,
         child: Stack(
           children: [
@@ -89,18 +98,24 @@ class _TodayPageState extends State<TodayPage> with AutomaticKeepAliveClientMixi
                   color: Colors.red,
                   width: 100,
                   height: 450,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: HorizontalRow(),
+                    )
+                    ),
                 ),
                  Container(
-                   // 设置渐变
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.red, Colors.orange],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter
-                    )
-                  ),
+                  color: Colors.purple,
                   width: 100,
                   height: 450,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: CollectionItem(),
+                      ),
+                  ),
+
                 ),
                  Container(
                   color: Colors.yellow,
@@ -117,9 +132,9 @@ class _TodayPageState extends State<TodayPage> with AutomaticKeepAliveClientMixi
             ),
           ],
         ),
-        ),
-    );
-  }
+        );
+ }
+ 
 
   Future<void> _onRefresh() async {
       print("触发了下拉刷新");
