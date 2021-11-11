@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:my_flutter/TodayNewsPage.dart';
 import 'package:my_flutter/collectionItem.dart';
 import 'package:my_flutter/loadingView.dart';
 import 'package:my_flutter/subNavCollection.dart';
@@ -15,15 +16,16 @@ class TabbarController extends StatefulWidget {
 
 class _TabbarState extends State<TabbarController> {
    int _selectIndex = 0;
-   final pages = [TodayPage(), PersionalPage()];
+   final pages = [TodayPage(), PersionalPage(), TodayNewsPage()];
    final PageController _controller = PageController(initialPage: 0);
 
    @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("首页"),
-      ),
+      // appBar: AppBar(
+      //   title: Text("首页"),
+      //   backgroundColor: Colors.blue,
+      // ),
       body: PageView(
         controller: _controller,
         physics: const NeverScrollableScrollPhysics(),
@@ -39,6 +41,10 @@ class _TabbarState extends State<TabbarController> {
             icon: Icon(Icons.hdr_auto),
             label: "个人"
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.ac_unit),
+            label: "头条"
+          )
         ],
         currentIndex: _selectIndex,
         onTap: (index){
