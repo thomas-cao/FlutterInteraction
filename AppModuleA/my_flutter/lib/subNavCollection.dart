@@ -44,7 +44,10 @@ class SubNavCollection extends StatelessWidget {
          children: [
            Icon(Icons.paid_outlined),
            SizedBox(height: 2,),
-           Text("itajjhdhdhehjjjjem$index")
+           Padding(
+             padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+             child: Text("ehjm$index", maxLines: 1, overflow: TextOverflow.ellipsis,),
+           )
          ],)
      );
   }
