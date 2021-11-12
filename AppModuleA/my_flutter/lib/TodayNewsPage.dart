@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter/NewPage.dart';
 import 'dart:ui';
 
 import 'package:my_flutter/screenInfo.dart';
@@ -80,7 +81,7 @@ class _TodayNewsPageState extends State<TodayNewsPage>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      backgroundColor: Color(0xfff1f1f1),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Container(
@@ -93,7 +94,7 @@ class _TodayNewsPageState extends State<TodayNewsPage>
            child: TabBarView(
              controller: _controller,
              children: _tabIndexConfigs.map((e) {
-               return Text("data");
+               return NewPage(pageName: e["titless"],);
              }).toList(),
            ),
          )
