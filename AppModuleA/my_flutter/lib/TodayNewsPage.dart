@@ -88,7 +88,15 @@ class _TodayNewsPageState extends State<TodayNewsPage>
             child: Column(
               children: [_customNavBar(), _pageIndexView()],
             ),
-          )
+          ),
+         Flexible(
+           child: TabBarView(
+             controller: _controller,
+             children: _tabIndexConfigs.map((e) {
+               return Text("data");
+             }).toList(),
+           ),
+         )
         ],
       ),
     );
@@ -101,6 +109,8 @@ class _TodayNewsPageState extends State<TodayNewsPage>
       child: TabBar(
         controller: _controller,
         labelColor: Colors.black,
+        indicatorColor: Colors.purple,
+        indicatorPadding: EdgeInsets.fromLTRB(15, 0, 15, 4),
         isScrollable: true,
         labelPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
         labelStyle: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
