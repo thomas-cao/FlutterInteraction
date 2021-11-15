@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'OrderDetailPage.dart';
 
 class NewPage extends StatelessWidget {
   final String? pageName;
@@ -35,6 +35,9 @@ class NewsItem extends StatelessWidget {
     return  GestureDetector(
       onTap: () {
         print("点击了订单");
+        Navigator.push(context, 
+         MaterialPageRoute(builder: (context) => const OrderDetailPage())
+         );
       },
       child: Container(
       padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
