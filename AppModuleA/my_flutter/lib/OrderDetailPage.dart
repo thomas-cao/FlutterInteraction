@@ -24,6 +24,7 @@ class OrderDetailPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4),
                 onPressed: (){
                   print("按钮点击了");
+                  Navigator.push(context,  MaterialPageRoute(builder: (context) => const OrderDetailPage()));
                 },),
                 GradientButton(
                 width: 250,

@@ -20,14 +20,15 @@ class ViewController: UIViewController {
         view.addSubview(btn)
         btn.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
         
-        
     }
 
     @objc private func buttonClick() {
         guard let app = UIApplication.shared.delegate as? AppDelegate else {return}
         // 创建flutter 页面
         let flutterVc = FlutterViewController(engine: app.flutterEngine, nibName: nil, bundle: nil)
-        
+        flutterVc.setFlutterViewDidRenderCallback {
+            print("flutter页面开始渲染")
+        }
         // 获取消息通道
         let channel = FlutterMethodChannel(name: "flutter/transferMessage", binaryMessenger: flutterVc.binaryMessenger)
         // 监听方法调用 当flutter调用的时候就会来回调这个页面
@@ -46,9 +47,13 @@ class ViewController: UIViewController {
                 self?.navigationController?.pushViewController(vc, animated: true)
             } else if methodCall.method == "deviceState" {
                 self?.setNavigationBarStateFrom(methodCall.arguments as? [String: Any])
+            } else if methodCall.method == "canPopFlutterPage" {
+                if let nav = self?.navigationController as? MyNavigationController {
+                    print("获取的结果是==\(methodCall.arguments)")
+                    nav.canPop = (methodCall.arguments as? Bool) ?? false
+                }
             }
         }
-        
         self.navigationController?.pushViewController(flutterVc, animated: true)
     }
     // 此种方法有弊端
@@ -91,6 +96,7 @@ class DetailViewController: UIViewController {
         view.addSubview(btn)
         
     }
+    
     
     @objc private func sendMessageToFlutter() {
         callback?()

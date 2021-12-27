@@ -10,13 +10,34 @@ main(List<String> args) {
     //设置之前需要先  WidgetsFlutterBinding.ensureInitialized();
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom, SystemUiOverlay.top]);
   runApp(MaterialApp(
+    navigatorObservers: [HHNavigatorObserver()],
     debugShowCheckedModeBanner: false,
     theme: ThemeData(primarySwatch: Colors.pink),
-    home: TabbarController(),
+    home: TabbarController()
   ));
 
- 
 }
+
+class HHNavigatorObserver extends NavigatorObserver {
+
+    // 从原生页面获取数据
+  static const plaform = const MethodChannel("flutter/transferMessage");
+
+   @override
+  void didPop(Route route, Route? previousRoute) {
+   bool canPop = route.navigator?.canPop() ?? false;
+    print("页面开始移除--$canPop");
+    plaform.invokeMethod("canPopFlutterPage", canPop);
+  }
+  @override
+  void didPush(Route route, Route? previousRoute) {
+    print("页面开始显示");
+    if (!route.isFirst) {
+      plaform.invokeMethod("canPopFlutterPage", true);
+    }
+  }
+}
+
 
 class HHHomePage extends StatefulWidget {
   @override

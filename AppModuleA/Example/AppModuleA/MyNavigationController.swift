@@ -11,6 +11,12 @@ import Flutter
 
 class MyNavigationController: UINavigationController {
 
+    public var canPop: Bool = false {
+        didSet {
+            self.interactivePopGestureRecognizer?.isEnabled = (self.viewControllers.count != 1 && !canPop)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let popGesture = interactivePopGestureRecognizer {
@@ -35,7 +41,7 @@ extension MyNavigationController: UINavigationControllerDelegate {
     }
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if let popGesture = self.interactivePopGestureRecognizer {
-            popGesture.isEnabled = self.viewControllers.count != 1
+            popGesture.isEnabled = (self.viewControllers.count != 1 && !canPop)
         }
     }
 }
