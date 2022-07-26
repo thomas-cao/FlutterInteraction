@@ -3,7 +3,7 @@ import 'package:my_flutter/NewPage.dart';
 import 'dart:ui';
 
 import 'package:my_flutter/screenInfo.dart';
-
+// Column 是上下布局  Row 是左右布局
 // StatelessWidget 转为 StatefulWidget 的快捷键 将鼠标移到StatelessWidget上按（command + .）
 //  StatelessWidget 快速生成快捷键 直接输入 stless 回车
 // StatefulWidget 快速生成快捷键 输入 stful 回车

@@ -1,7 +1,8 @@
 use_frameworks!
 
 
-# 引入flutter模块
+platform :ios, '10.0'
+## 引入flutter模块
 flutter_application_path = '../my_flutter'
 load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 

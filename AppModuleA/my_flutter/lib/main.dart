@@ -10,7 +10,7 @@ main(List<String> args) {
     //设置之前需要先  WidgetsFlutterBinding.ensureInitialized();
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom, SystemUiOverlay.top]);
   runApp(MaterialApp(
-    navigatorObservers: [HHNavigatorObserver()],
+    // navigatorObservers: [HHNavigatorObserver()],
     debugShowCheckedModeBanner: false,
     theme: ThemeData(primarySwatch: Colors.pink),
     home: TabbarController()
@@ -58,7 +58,7 @@ class _HHHomePageState extends State<HHHomePage> with WidgetsBindingObserver {
     super.initState();
     basicChannel.setMessageHandler(_recevierMessage);
     // 开始监听 WidgetsBindingObserver 事件
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
   }
 
   // 监听原生发来的消息
@@ -97,7 +97,7 @@ class _HHHomePageState extends State<HHHomePage> with WidgetsBindingObserver {
   void dispose() {
     super.dispose();
     // 移除监听者
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
   }
 
   @override
