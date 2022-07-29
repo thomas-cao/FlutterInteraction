@@ -714,6 +714,19 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		10A5FA4967F54A5E69CFB6105019D6A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A472DA7377904814E588E326EDA846D6 /* Flutter.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		296BEEA704E3EC06C12CF216D21C1A3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AEE7E552CCD24D6A476C31878BFC73EE /* FlutterPluginRegistrant.debug.xcconfig */;
@@ -821,18 +834,19 @@
 			};
 			name = Release;
 		};
-		7EDAD7219BA1479579D628575186B916 /* Debug */ = {
+		762BE2A98397712A18EC3207CD8C51FB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A472DA7377904814E588E326EDA846D6 /* Flutter.debug.xcconfig */;
+			baseConfigurationReference = E950E0C7E64503B7D3752A4D5486DC27 /* Flutter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -927,20 +941,6 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		8606E7E500178836E5AFA4E838ECFB63 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E950E0C7E64503B7D3752A4D5486DC27 /* Flutter.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -1167,8 +1167,8 @@
 		1757ACDC8B2A601FA4135FFF522387C6 /* Build configuration list for PBXAggregateTarget "Flutter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7EDAD7219BA1479579D628575186B916 /* Debug */,
-				8606E7E500178836E5AFA4E838ECFB63 /* Release */,
+				10A5FA4967F54A5E69CFB6105019D6A4 /* Debug */,
+				762BE2A98397712A18EC3207CD8C51FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
